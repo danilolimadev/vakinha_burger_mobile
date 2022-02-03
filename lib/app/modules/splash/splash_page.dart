@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vakinha_burguer_mobile/app/core/ui/widgets/vakinha_appbar.dart';
 import 'package:vakinha_burguer_mobile/app/core/ui/widgets/vakinha_button.dart';
-import 'package:vakinha_burguer_mobile/app/core/ui/widgets/vakinha_textformfield.dart';
+import 'package:vakinha_burguer_mobile/app/modules/splash/splash_controller.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends GetView<SplashController> {
   const SplashPage({Key? key}) : super(key: key);
 
-  @override
-  _SplashPageState createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,12 +35,11 @@ class _SplashPageState extends State<SplashPage> {
                     height: 60,
                   ),
                   VakinhaButton(
-                      label: 'Acessar',
-                      width: context.widthTransformer(reducedBy: 40),
-                      height: 35,
-                      onPressed: () {
-                        Get.toNamed('/auth/login');
-                      }),
+                    label: 'Acessar',
+                    width: context.widthTransformer(reducedBy: 40),
+                    height: 35,
+                    onPressed: () => controller.checkLogged(),
+                  ),
                 ],
               ),
             ),
