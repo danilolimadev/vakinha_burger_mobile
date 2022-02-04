@@ -4,6 +4,8 @@ import 'package:vakinha_burguer_mobile/app/core/services/auth_service.dart';
 import 'package:vakinha_burguer_mobile/app/core/services/shopping_card_service.dart';
 import 'package:vakinha_burguer_mobile/app/modules/menu/menu_bindings.dart';
 import 'package:vakinha_burguer_mobile/app/modules/menu/menu_page.dart';
+import 'package:vakinha_burguer_mobile/app/modules/order/shopping_card/shopping_card_bindings.dart';
+import 'package:vakinha_burguer_mobile/app/modules/order/shopping_card/shopping_card_page.dart';
 
 class HomeController extends GetxController {
   static const NAVIGATOR_KEY = 1;
@@ -40,6 +42,13 @@ class HomeController extends GetxController {
       );
     }
 
-    if (settings.name == '/order/shopping_card') {}
+    if (settings.name == '/order/shopping_card') {
+      return GetPageRoute(
+        settings: settings,
+        page: () => ShoppingCardPage(),
+        binding: ShoppingCardBindings(),
+        transition: Transition.fadeIn,
+      );
+    }
   }
 }
